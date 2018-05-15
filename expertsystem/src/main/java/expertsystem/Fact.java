@@ -25,5 +25,15 @@ public class Fact{
         this.ids.add(id);
     }
 
+    public Set<String> getIdSet(){
+        return this.ids;
+    }
 
+    public String getId() {
+        return this.id;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
 }
