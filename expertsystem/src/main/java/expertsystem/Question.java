@@ -2,9 +2,12 @@ package expertsystem;
 
 public class Question {
 
-    String id;
-    public Question(String id, String answer, Answer answer){
+    private String id;
+    private String question;
 
+    public Question(String id, String question, Answer answer){
+        this.id = id;
+        this.question = question;
     }
 
     private String getId(){
@@ -12,7 +15,7 @@ public class Question {
     }
     
     private String getQuestion(){
-        return null;
+        return this.question;
     }
 
     private Answer getAnswer(){
