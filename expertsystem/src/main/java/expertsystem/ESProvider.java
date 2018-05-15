@@ -5,7 +5,7 @@ public class ESProvider {
     FactRepository factRepository;
 
     public ESProvider(FactParser factParser, RuleParser ruleParser){
-        factRepository = getFactRepository();
+        this.factRepository.getFactRepository();
     }
 
     private void collectAnswers(){
