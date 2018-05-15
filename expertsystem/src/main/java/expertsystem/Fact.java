@@ -16,6 +16,9 @@ public class Fact{
         this.description = description;
     }
 
-
+    public boolean getValueById(String id) {
+        return this.values.get(id).booleanValue();
     }
+
+
 }
