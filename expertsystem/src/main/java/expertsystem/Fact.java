@@ -20,5 +20,10 @@ public class Fact{
         return this.values.get(id).booleanValue();
     }
 
+    public void setFactValueById(String id, boolean value){
+        this.values.put(id, value);
+        this.ids.add(id);
+    }
+
 
 }
