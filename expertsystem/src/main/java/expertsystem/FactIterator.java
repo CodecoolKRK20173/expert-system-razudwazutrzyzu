@@ -17,5 +17,10 @@ public class FactIterator implements Iterator<Fact>{
         return index < this.facts.size();
     }
 
-
+    @Override
+    public Fact next(){
+        Fact fact = this.facts.get(index);
+        index++;
+        return fact;
+    }
 }
