@@ -12,6 +12,10 @@ public class FactIterator implements Iterator<Fact>{
         this.facts = facts;
     }
 
+    @Override
+    public boolean hasNext() {
+        return index < this.facts.size();
+    }
 
 
 }
