@@ -1,16 +1,23 @@
 package expertsystem;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class RuleRepository {
 
-    private Map<String, Question> values = new HashMap<>();
+    private QuestionIterator questionIterator;
+    private List<Question> questions = new ArrayList<>();
 
-    private void addQuestion(Question question){
+    public RuleRepository(){
+        this.questionIterator = new QuestionIterator(questions);
     }
 
-    private void getIterator(){
+    private void addQuestion(Question question){
+        this.questions.add(question);
+    }
 
+    private Iterator<Question> getIterator(){
+        return this.questionIterator;
     }
 }
