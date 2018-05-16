@@ -1,12 +1,26 @@
 package expertsystem;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Answer {
 
-    private boolean evaluatedAnswerByInput(String input){
-        return true;
+    List<String> patterns = new ArrayList<>();
+    List<Value> values = new ArrayList<>();
+
+    
+    public boolean evaluateAnswerByInput(String userInput) {
+        for (Value value : this.values) {
+            for (String pattern : value.getInputPattern()) {
+                if (userInput.equals(pattern)) {
+                    return value.getSelectionType();
+                }
+            }
+        }
+        return false;
     }
     
-    private void addValue(Value value){
-
+    public void addValue(Value value){
+        this.values.add(value);
     }
 }
