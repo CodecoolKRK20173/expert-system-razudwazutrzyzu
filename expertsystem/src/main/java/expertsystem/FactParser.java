@@ -1,6 +1,12 @@
 package expertsystem;
 
-public class FactParser{
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
+import java.io.File;
+
+public class FactParser extends XMLParser{
 
     public FactRepository getFactRepository(){
         FactRepository factRepository = new FactRepository();
