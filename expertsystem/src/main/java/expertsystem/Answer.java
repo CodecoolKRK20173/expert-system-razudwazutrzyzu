@@ -6,18 +6,21 @@ import java.util.ArrayList;
 public class Answer {
 
     List<String> patterns = new ArrayList<>();
+    List<Value> values = new ArrayList<>();
 
-    private boolean evaluatedAnswerByInput(String input){
-        this.patterns.getInputPattern();
-        for(String pattern: patterns ){
-            if(input.equals(pattern)){
-                return true;
+    
+    public boolean evaluateAnswerByInput(String userInput) {
+        for (Value value : this.values) {
+            for (String pattern : value.getInputPattern()) {
+                if (userInput.equals(pattern)) {
+                    return value.getSelectionType();
+                }
             }
         }
         return false;
     }
     
-    private void addValue(Value value){
-
+    public void addValue(Value value){
+        this.values.add(value);
     }
 }

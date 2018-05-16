@@ -24,6 +24,7 @@ public class ESProvider {
             
             if(evaluateAnswerByInput(input)){
                 matches.put(questions.next().getId(), odpowiadającaMuValue);
+        
                 break;
             }
             
