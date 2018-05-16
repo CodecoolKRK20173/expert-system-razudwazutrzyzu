@@ -2,7 +2,7 @@ package expertsystem;
 
 import java.util.List;
 import java.util.ArrayList;
-
+import java.security.InvalidParameterException;
 public class Answer {
 
     List<String> patterns = new ArrayList<>();
@@ -17,7 +17,7 @@ public class Answer {
                 }
             }
         }
-        return false;
+        throw new InvalidParameterException("Wrong input");
     }
     
     public void addValue(Value value){
