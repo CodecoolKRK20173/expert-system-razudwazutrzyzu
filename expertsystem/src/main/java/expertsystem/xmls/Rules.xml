@@ -25,7 +25,7 @@
     </Rule>
     ...
     <Rule id="rigcz">
-        <Question>What languages do you like?</Question>
+        <Question>What language do you like?</Question>
         <Answer>
             <Selection value="true">
                 <MultipleValue value="cpp,c,c#,java,scratch,python"/>
