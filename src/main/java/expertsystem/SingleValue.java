@@ -3,19 +3,20 @@ package expertsystem;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class MultipleValue extends Value{
-    
+class SingleValue extends Value {
     private boolean selectionType;
-    private List<String> parameters;
+    private String param;
 
-    public MultipleValue(List<String> parameters, boolean selectionType){
+    public SingleValue(String param, boolean selectionType){
         this.selectionType = selectionType;
-        this.parameters = parameters;
+        this.param = param;
     }
 
     public  List<String> getInputPattern(){
-        return this.parameters;
+        List<String> patt = new ArrayList<>();
+        patt.add(this.param);
+        
+        return patt;
     }    
 
     public  boolean getSelectionType(){

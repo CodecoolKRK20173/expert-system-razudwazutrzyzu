@@ -10,8 +10,8 @@ import java.util.Set;
 public class ESProvider {
 
     private Scanner reader = new Scanner(System.in);
-    private String input;
-    private Map<String, Boolean> matches;
+    private String userInput;
+    private Map<String, Boolean> pairsOfMatches;
 
     private RuleRepository ruleRepository;
     private FactRepository factRepository;
@@ -23,22 +23,20 @@ public class ESProvider {
     }
 
     public void collectAnswers(){
-        this.matches = new HashMap<>();
+        this.pairsOfMatches = new HashMap<>();
         Iterator<Question> iterator = this.ruleRepository.getIterator();
-        while(iterator.hasNext()){
-            
+
+        while(iterator.hasNext()){    
             Question currentQuestion = iterator.next();
             boolean wrongInput = true;
-            System.out.println(currentQuestion.getQuestion());
 
             while(wrongInput){
-
-                input = reader.nextLine();
+                userInput = reader.nextLine().toLowerCase();
                 try{
-                    matches.put(currentQuestion.getId(), currentQuestion.getEvaluatedAnswer(input));
+                    pairsOfMatches.put(currentQuestion.getId(), currentQuestion.getEvaluatedAnswer(userInput));
                     wrongInput = false;
                 }catch(InvalidParameterException e){
-                    System.out.println(e);
+                    System.out.println("There is no option like that, try again.");
                     wrongInput = true;
                 }
             }
@@ -47,25 +45,27 @@ public class ESProvider {
     }
 
     private boolean getAnswerByQuestion(String questionID){
-        return matches.get(questionID).booleanValue();
+        return pairsOfMatches.get(questionID).booleanValue();
     }
 
     public String evaluate(){
-        
         Iterator<Fact> fIterator = factRepository.getIterator();
+
         while(fIterator.hasNext()){
             Fact fact = fIterator.next();
             Set<String> idList = fact.getIdSet();
-            boolean win = true;
+            boolean valuespairsOfMatches = true;
 
             for(String id : idList){
-                System.out.println(getAnswerByQuestion(id) + "   "+ id + "   " + fact.getValueById(id) );
-                if(getAnswerByQuestion(id) != fact.getValueById(id)){ win = false; }
+                if(getAnswerByQuestion(id) != fact.getValueById(id)){
+                    valuespairsOfMatches = false;
+                }
             }
 
-            if(win){ return fact.getDescription();}
-
+            if(valuespairsOfMatches){
+                return fact.getDescription();
+            }
         }
-        return null;
+        return "\nSadly but language for you doesn't exist.";
     }   
 }

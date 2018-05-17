@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class FactIterator implements Iterator<Fact>{
-    
     private int index;
     private ArrayList<Fact> facts;
 
