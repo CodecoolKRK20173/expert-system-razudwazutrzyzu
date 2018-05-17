@@ -5,12 +5,13 @@ import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.Set;
 
 public class ESProvider {
 
     private Scanner reader = new Scanner(System.in);
-    private String input;
-    private Map<String, Boolean> matches;
+    private String userInput;
+    private Map<String, Boolean> pairsOfMatches;
 
     private RuleRepository ruleRepository;
     private FactRepository factRepository;
@@ -21,23 +22,21 @@ public class ESProvider {
         this.factRepository = factParser.getFactRepository();
     }
 
-    private void collectAnswers(){
-        this.matches = new HashMap<>();
+    public void collectAnswers(){
+        this.pairsOfMatches = new HashMap<>();
         Iterator<Question> iterator = this.ruleRepository.getIterator();
-        while(iterator.hasNext()){
-            
+
+        while(iterator.hasNext()){    
             Question currentQuestion = iterator.next();
             boolean wrongInput = true;
-            System.out.println(currentQuestion.getQuestion());
 
             while(wrongInput){
-
-                input = reader.nextLine();
+                userInput = reader.nextLine().toLowerCase();
                 try{
-                    matches.put(currentQuestion.getId(), currentQuestion.getEvaluatedAnswer(input));
+                    pairsOfMatches.put(currentQuestion.getId(), currentQuestion.getEvaluatedAnswer(userInput));
                     wrongInput = false;
                 }catch(InvalidParameterException e){
-                    System.out.println(e);
+                    System.out.println("There is no option like that, try again.");
                     wrongInput = true;
                 }
             }
@@ -46,10 +45,27 @@ public class ESProvider {
     }
 
     private boolean getAnswerByQuestion(String questionID){
-        return matches.get(questionID).booleanValue();
+        return pairsOfMatches.get(questionID).booleanValue();
     }
 
-    private String evaluate(){
-        return null;
+    public String evaluate(){
+        Iterator<Fact> fIterator = factRepository.getIterator();
+
+        while(fIterator.hasNext()){
+            Fact fact = fIterator.next();
+            Set<String> idList = fact.getIdSet();
+            boolean valuespairsOfMatches = true;
+
+            for(String id : idList){
+                if(getAnswerByQuestion(id) != fact.getValueById(id)){
+                    valuespairsOfMatches = false;
+                }
+            }
+
+            if(valuespairsOfMatches){
+                return fact.getDescription();
+            }
+        }
+        return "\nSadly but language for you doesn't exist.";
     }   
 }

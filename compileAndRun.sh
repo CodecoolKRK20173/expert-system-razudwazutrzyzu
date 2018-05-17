@@ -1,4 +1,4 @@
 #!/bin/bash
-find expertsystem/src -name '*.java' > sources.list
+find src -name '*.java' > sources.list
 mkdir -p out
 javac @sources.list -d out && java -cp out:resources expertsystem.Main

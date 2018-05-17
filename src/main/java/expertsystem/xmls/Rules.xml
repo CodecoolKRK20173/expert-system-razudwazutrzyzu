@@ -28,10 +28,10 @@
         <Question>What language do you like?</Question>
         <Answer>
             <Selection value="true">
-                <MultipleValue value="cpp,c,c#,java,scratch,python"/>
+                <MultipleValue value="cpp,c,csharp,c#,java,scratch,python,whitespaces,chinese,html"/>
             </Selection>
             <Selection value="false">
-                <MultipleValue value="php,js,javascript,go,ruby"/>
+                <MultipleValue value="php,js,javascript,javascript,go,ruby"/>
             </Selection>
         </Answer>
     </Rule>
