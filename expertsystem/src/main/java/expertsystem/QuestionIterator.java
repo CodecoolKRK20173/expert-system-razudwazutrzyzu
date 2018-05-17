@@ -20,7 +20,6 @@ public class QuestionIterator implements Iterator<Question> {
     public Question next(){
         if (this.hasNext()){
             System.out.println(list.get(index).getQuestion());
-            
             return list.get(index++);
         }
         else

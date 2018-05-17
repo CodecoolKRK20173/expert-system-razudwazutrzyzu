@@ -51,18 +51,19 @@ public class ESProvider {
     }
 
     public String evaluate(){
+        
         Iterator<Fact> fIterator = factRepository.getIterator();
         while(fIterator.hasNext()){
-
             Fact fact = fIterator.next();
             Set<String> idList = fact.getIdSet();
             boolean win = true;
 
             for(String id : idList){
+                System.out.println(getAnswerByQuestion(id) + "   "+ id + "   " + fact.getValueById(id) );
                 if(getAnswerByQuestion(id) != fact.getValueById(id)){ win = false; }
             }
 
-            if(win){return fact.getDescription();}
+            if(win){ return fact.getDescription();}
 
         }
         return null;

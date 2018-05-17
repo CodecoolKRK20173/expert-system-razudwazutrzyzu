@@ -37,7 +37,9 @@ public class FactParser extends XMLParser{
                     Boolean state = ((Element)selection.item(j)).getTextContent().equals("true");
                     fact.setFactValueById(value, state);
                 }
+                factRepository.addFact(fact);
             }
+            
         }
         return factRepository;
     }

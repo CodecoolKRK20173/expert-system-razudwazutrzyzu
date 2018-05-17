@@ -40,9 +40,10 @@ public class RuleParser extends XMLParser{
                 System.out.println("Question : " + eElement.getElementsByTagName("Question").item(0).getTextContent()); //for test
                 Node nAnswer = eElement.getElementsByTagName("Answer").item(0);
                 NodeList selection = ((Element) nAnswer).getElementsByTagName("Selection");
-                for (int j = 0; j < selection.getLength(); j++) {
+                Answer answer = new Answer();
 
-                    Answer answer = new Answer();
+                for (int j = 0; j < selection.getLength(); j++) {
+  
 
                     Boolean state = ((Element) selection.item(j)).getAttribute("value").equals("true"); //for test
                     Node x = selection.item(j);
@@ -61,10 +62,10 @@ public class RuleParser extends XMLParser{
                     answer.addValue(value);
                     }
                 
-                    Question question = new Question(questionID, questionName, answer);
-                    ruleRepository.addQuestion(question);
+                    
                 }
-               
+               Question question = new Question(questionID, questionName, answer);
+                    ruleRepository.addQuestion(question);
             }
         }
     
