@@ -14,13 +14,9 @@ public class RuleParser extends XMLParser{
 
     RuleRepository ruleRepository;
 
-    public RuleParser(){
-        getRuleRepository();
-    }
-
     public RuleRepository getRuleRepository(){
         RuleRepository ruleRepository = new RuleRepository();
-        XMLParser.loadXMLDocument("xmls/Rules.xml");
+        XMLParser.loadXMLDocument("expertsystem/src/main/java/expertsystem/xmls/Rules.xml");
         Document doc = XMLParser.doc;
         NodeList nList = doc.getElementsByTagName("Rule");
         System.out.println("Root element :" + doc.getDocumentElement().getNodeName());

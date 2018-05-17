@@ -10,6 +10,7 @@ public class QuestionIterator implements Iterator<Question> {
 
     public QuestionIterator(List<Question> list){
         this.list = list;
+        this.index = 0;
     }
 
     public boolean hasNext(){
@@ -17,8 +18,11 @@ public class QuestionIterator implements Iterator<Question> {
     }
 
     public Question next(){
-        if (this.hasNext())
-            return list.get(this.index++);
+        if (this.hasNext()){
+            System.out.println(list.get(index).getQuestion());
+            
+            return list.get(index++);
+        }
         else
             return null;
     }

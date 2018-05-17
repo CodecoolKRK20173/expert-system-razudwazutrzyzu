@@ -1,0 +1,15 @@
+expertsystem/src/main/java/expertsystem/MultipleValue.java
+expertsystem/src/main/java/expertsystem/FactIterator.java
+expertsystem/src/main/java/expertsystem/FactRepository.java
+expertsystem/src/main/java/expertsystem/QuestionIterator.java
+expertsystem/src/main/java/expertsystem/Fact.java
+expertsystem/src/main/java/expertsystem/Main.java
+expertsystem/src/main/java/expertsystem/SingleValue.java
+expertsystem/src/main/java/expertsystem/ESProvider.java
+expertsystem/src/main/java/expertsystem/RuleRepository.java
+expertsystem/src/main/java/expertsystem/RuleParser.java
+expertsystem/src/main/java/expertsystem/Value.java
+expertsystem/src/main/java/expertsystem/Question.java
+expertsystem/src/main/java/expertsystem/FactParser.java
+expertsystem/src/main/java/expertsystem/XMLParser.java
+expertsystem/src/main/java/expertsystem/Answer.java

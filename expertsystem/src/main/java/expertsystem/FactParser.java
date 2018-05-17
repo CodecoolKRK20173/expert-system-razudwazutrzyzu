@@ -9,7 +9,7 @@ public class FactParser extends XMLParser{
 
     public FactRepository getFactRepository(){
         FactRepository factRepository = new FactRepository();
-        XMLParser.loadXMLDocument("xmls/Facts.xml");
+        XMLParser.loadXMLDocument("expertsystem/src/main/java/expertsystem/xmls/Facts.xml");
         Document doc = XMLParser.doc;
         NodeList nList = doc.getElementsByTagName("Fact");
         for (int i = 0; i < nList.getLength(); i++) {
