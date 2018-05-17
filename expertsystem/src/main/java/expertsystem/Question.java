@@ -12,19 +12,19 @@ public class Question {
         this.answer = answer;
     }
 
-    private String getId(){
+    public String getId(){
         return this.id;
     }
     
-    private String getQuestion(){
+    public String getQuestion(){
         return this.question;
     }
 
-    private Answer getAnswer(){
+    public Answer getAnswer(){
         return this.answer;
     } 
 
-    private boolean getEvaluatedAnswer(String input){
+    public boolean getEvaluatedAnswer(String input){
         return this.answer.evaluateAnswerByInput(input);
     }
 }
