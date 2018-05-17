@@ -31,7 +31,7 @@ public class ESProvider {
             boolean wrongInput = true;
 
             while(wrongInput){
-                userInput = reader.nextLine();
+                userInput = reader.nextLine().toLowerCase();
                 try{
                     pairsOfMatches.put(currentQuestion.getId(), currentQuestion.getEvaluatedAnswer(userInput));
                     wrongInput = false;
