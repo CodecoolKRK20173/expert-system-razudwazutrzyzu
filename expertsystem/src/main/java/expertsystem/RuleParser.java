@@ -12,64 +12,53 @@ import java.util.ArrayList;
 
 public class RuleParser extends XMLParser{
 
-    RuleRepository ruleRepository;
-
     public RuleRepository getRuleRepository(){
         RuleRepository ruleRepository = new RuleRepository();
         XMLParser.loadXMLDocument("expertsystem/src/main/java/expertsystem/xmls/Rules.xml");
         Document doc = XMLParser.doc;
         NodeList nList = doc.getElementsByTagName("Rule");
-        System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
         for (int i = 0; i < nList.getLength(); i++) {
-
-            Node nNode = nList.item(i);
-                    
-            System.out.println("\nCurrent Element :" + nNode.getNodeName()); //for test
+            Element nNode = (Element) nList.item(i);
                     
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                
-                Element eElement = (Element) nNode;
-
-                String questionID = eElement.getAttribute("id");
-                String questionName = eElement.getElementsByTagName("Question").item(0).getTextContent();
-
-                
-
-                System.out.println("Rule id : " + eElement.getAttribute("id")); //for test
-                System.out.println("Question : " + eElement.getElementsByTagName("Question").item(0).getTextContent()); //for test
-                Node nAnswer = eElement.getElementsByTagName("Answer").item(0);
-                NodeList selection = ((Element) nAnswer).getElementsByTagName("Selection");
-                Answer answer = new Answer();
-
-                for (int j = 0; j < selection.getLength(); j++) {
-  
-
-                    Boolean state = ((Element) selection.item(j)).getAttribute("value").equals("true"); //for test
-                    Node x = selection.item(j);
-                    Element xElement = (Element) x;
-
-                    if(xElement.getElementsByTagName("SingleValue").getLength() > 0){
-                    String valueName = ((Element) xElement.getElementsByTagName("SingleValue").item(0)).getAttribute("value");
-                    Value value = new SingleValue(valueName ,state);
-                    answer.addValue(value);
-
-                    }else{
-
-                    String valueName = ((Element) xElement.getElementsByTagName("MultipleValue").item(0)).getAttribute("value");
-
-                    Value value = new MultipleValue(getValueList(valueName),state);
-                    answer.addValue(value);
-                    }
-                
-                    
-                }
-               Question question = new Question(questionID, questionName, answer);
-                    ruleRepository.addQuestion(question);
+                Question question = createQuestion(nNode);
+                ruleRepository.addQuestion(question);
             }
         }
-    
         return ruleRepository;
+    }
+
+    private Question createQuestion(Element eElement){
+        String questionID = eElement.getAttribute("id");
+        String questionName = eElement.getElementsByTagName("Question").item(0).getTextContent();
+        Node nAnswer = eElement.getElementsByTagName("Answer").item(0);
+        NodeList selection = ((Element) nAnswer).getElementsByTagName("Selection");
+        Answer answer = new Answer();
+
+        for (int j = 0; j < selection.getLength(); j++) {
+            Value value = addValueToAnswer(selection.item(j));
+            answer.addValue(value);
+        }
+        Question question = new Question(questionID, questionName, answer);
+        return question;
+    }
+
+    private Value addValueToAnswer(Node selectionItem){
+        Value value;
+        Boolean state = ((Element) selectionItem).getAttribute("value").equals("true");
+        Element selectionElement = (Element) selectionItem;
+
+        if(selectionElement.getElementsByTagName("SingleValue").getLength() > 0){
+            NodeList nSelection = selectionElement.getElementsByTagName("SingleValue");
+            String valueName = ((Element) nSelection.item(0)).getAttribute("value");
+            value = new SingleValue(valueName ,state);
+        }else{
+            NodeList nSelection = selectionElement.getElementsByTagName("MultipleValue");
+            String valueName = ((Element) nSelection.item(0)).getAttribute("value");
+            value = new MultipleValue(getValueList(valueName),state);
+        }
+        return value;
     }
 
     private List<String> getValueList(String valueName){
