@@ -4,7 +4,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import java.io.File;
 
 public class FactParser extends XMLParser{
 
@@ -36,10 +35,11 @@ public class FactParser extends XMLParser{
                     System.out.println(((Element)selection.item(j)).getTextContent()); //For test
                     String value = ((Element) selection.item(j)).getAttribute("id");
                     Boolean state = ((Element)selection.item(j)).getTextContent().equals("true");
-                    fact.setFactValueById(eval, value);
+                    fact.setFactValueById(value, state);
                 }
             }
         }
+        return factRepository;
     }
 
 }

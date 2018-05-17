@@ -5,7 +5,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import java.io.File;
+import java.util.ArrayList;
 
 public class RuleParser extends XMLParser{
 
@@ -35,7 +35,7 @@ public class RuleParser extends XMLParser{
                 String questionID = eElement.getAttribute("id");
                 String questionName = eElement.getElementsByTagName("Question").item(0).getTextContent();
 
-                ruleRepository.addQuestion(question);
+                
 
                 System.out.println("Rule id : " + eElement.getAttribute("id")); //for test
                 System.out.println("Question : " + eElement.getElementsByTagName("Question").item(0).getTextContent()); //for test
@@ -45,7 +45,9 @@ public class RuleParser extends XMLParser{
 
                     Answer answer = new Answer();
 
-                    Boolean state = ((Element) selection.item(j)).getAttribute("value"); //for test
+                    Boolean state = ((Element) selection.item(j)).getAttribute("value").equals("true"); //for test
+                    Node x = selection.item(j);
+                    Element xElement = (Element) x;
 
                     if(xElement.getElementsByTagName("SingleValue").getLength() > 0){
                     String valueName = ((Element) xElement.getElementsByTagName("SingleValue").item(0)).getAttribute("value");
@@ -59,14 +61,19 @@ public class RuleParser extends XMLParser{
                     Value value = new MultipleValue(getValueList(valueName),state);
                     answer.addValue(value);
                     }
+                
+                    Question question = new Question(questionID, questionName, answer);
+                    ruleRepository.addQuestion(question);
                 }
-                Question question = new Question(questionID, questionName, answer);
+               
             }
         }
+    
+        return ruleRepository;
     }
 
     private List<String> getValueList(String valueName){
-        List<String> valueList = new List<String>();
+        List<String> valueList = new ArrayList<String>();
 
         String[] splitedValue = valueName.split(",");
         for(int i = 0; i < splitedValue.length; i++){

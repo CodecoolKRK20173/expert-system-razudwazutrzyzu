@@ -4,6 +4,7 @@ import java.util.Map;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Iterator;
 
 public class ESProvider {
 
@@ -45,7 +46,7 @@ public class ESProvider {
     }
 
     private boolean getAnswerByQuestion(String questionID){
-        return true;
+        return matches.get(questionID).booleanValue();
     }
 
     private String evaluate(){

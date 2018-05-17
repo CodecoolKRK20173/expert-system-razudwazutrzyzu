@@ -6,7 +6,7 @@ import org.w3c.dom.Document;
 import java.io.File;
 
 public abstract class XMLParser{
-    Document doc;
+    public static Document doc;
 
     public void loadXMLDocument(String xmlPath){
 
