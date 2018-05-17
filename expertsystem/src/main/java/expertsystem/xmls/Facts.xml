@@ -11,6 +11,50 @@
         </Evals>
     </Fact>
     ...
+    <Fact id="cpp">
+        <Description value="cpp"/>
+        <Evals>
+            <Eval id="interpreted">true</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    ...
+    <Fact id="whiteSpaces">
+        <Description value="whiteSpaces"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">false</Eval>
+            <Eval id="best">true</Eval>
+        </Evals>
+    </Fact>
+    ...
+    <Fact id="html">
+        <Description value="html"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">true</Eval>
+        </Evals>
+    </Fact>
+    ...
+    <Fact id="c#">
+        <Description value="c#"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    ...
     <Fact id="java">
         <Description value="Java"/>
         <Evals>
