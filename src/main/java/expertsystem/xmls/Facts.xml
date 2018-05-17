@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Facts>
+    <Fact id="python">
+        <Description value="Python 3.0"/>
+        <Evals>
+            <Eval id="interpreted">true</Eval>
+            <Eval id="dynamical">true</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">false</Eval>
+            <Eval id="best">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="cpp">
+        <Description value="cpp"/>
+        <Evals>
+            <Eval id="interpreted">true</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="chinese">
+        <Description value="chinese"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">true</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="whiteSpaces">
+        <Description value="whiteSpaces"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">false</Eval>
+            <Eval id="best">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="js">
+        <Description value="js"/>
+        <Evals>
+            <Eval id="interpreted">true</Eval>
+            <Eval id="dynamical">true</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="html">
+        <Description value="html"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="c#">
+        <Description value="c#"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="java">
+        <Description value="Java"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="assembly">
+        <Description value="Assembly x86"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">false</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="scratch">
+        <Description value="The BEST Programing language Scratch"/>
+        <Evals>
+            <Eval id="interpreted">true</Eval>
+            <Eval id="dynamical">true</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">true</Eval>
+            <Eval id="best">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="ruby">
+        <Description value="Ruby"/>
+        <Evals>
+            <Eval id="interpreted">true</Eval>
+            <Eval id="dynamical">true</Eval>
+            <Eval id="rigcz">false</Eval>
+            <Eval id="popular">false</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="cobol">
+        <Description value="COBOL"/>
+        <Evals>
+            <Eval id="interpreted">false</Eval>
+            <Eval id="dynamical">false</Eval>
+            <Eval id="rigcz">true</Eval>
+            <Eval id="popular">false</Eval>
+            <Eval id="best">false</Eval>
+        </Evals>
+    </Fact>
+</Facts>

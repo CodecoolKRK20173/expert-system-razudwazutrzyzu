@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Rules>
+    <Rule id="interpreted">
+        <Question>Do you want interpreted or compiled?</Question>
+        <Answer>
+            <Selection value="true">
+                <SingleValue value="interpreted"/>
+            </Selection>
+            <Selection value="false">
+                <SingleValue value="compiled"/>
+            </Selection>
+        </Answer>
+    </Rule>
+    ...
+    <Rule id="dynamical">
+        <Question>Dynamically or Statically typed?</Question>
+        <Answer>
+            <Selection value="true">
+                <SingleValue value="dynamically"/>
+            </Selection>
+            <Selection value="false">
+                <SingleValue value="statically"/>
+            </Selection>
+        </Answer>
+    </Rule>
+    ...
+    <Rule id="rigcz">
+        <Question>What language do you like?</Question>
+        <Answer>
+            <Selection value="true">
+                <MultipleValue value="cpp,c,csharp,c#,java,scratch,python,whitespaces,chinese,html"/>
+            </Selection>
+            <Selection value="false">
+                <MultipleValue value="php,js,javascript,javascript,go,ruby"/>
+            </Selection>
+        </Answer>
+    </Rule>
+    ...
+    <Rule id="popular">
+        <Question>Do you want popular language?</Question>
+        <Answer>
+            <Selection value="true">
+                <SingleValue value="yes"/>
+            </Selection>
+            <Selection value="false">
+                <SingleValue value="no"/>
+            </Selection>
+        </Answer>
+    ...
+    </Rule>
+        <Rule id="best">
+        <Question>Do you want the best language?</Question>
+        <Answer>
+            <Selection value="true">
+                <SingleValue value="yes"/>
+            </Selection>
+            <Selection value="false">
+                <SingleValue value="no"/>
+            </Selection>
+        </Answer>
+    </Rule>
+</Rules>
