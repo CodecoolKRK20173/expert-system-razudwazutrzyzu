@@ -13,11 +13,11 @@ public class RuleRepository {
         this.questionIterator = new QuestionIterator(questions);
     }
 
-    private void addQuestion(Question question){
+    public void addQuestion(Question question){
         this.questions.add(question);
     }
 
-    private Iterator<Question> getIterator(){
+    public Iterator<Question> getIterator(){
         return this.questionIterator;
     }
 }
