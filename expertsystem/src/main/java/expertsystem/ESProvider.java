@@ -5,6 +5,7 @@ import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.Set;
 
 public class ESProvider {
 
@@ -21,7 +22,7 @@ public class ESProvider {
         this.factRepository = factParser.getFactRepository();
     }
 
-    private void collectAnswers(){
+    public void collectAnswers(){
         this.matches = new HashMap<>();
         Iterator<Question> iterator = this.ruleRepository.getIterator();
         while(iterator.hasNext()){
@@ -49,7 +50,21 @@ public class ESProvider {
         return matches.get(questionID).booleanValue();
     }
 
-    private String evaluate(){
+    public String evaluate(){
+        Iterator<Fact> fIterator = factRepository.getIterator();
+        while(fIterator.hasNext()){
+
+            Fact fact = fIterator.next();
+            Set<String> idList = fact.getIdSet();
+            boolean win = true;
+
+            for(String id : idList){
+                if(getAnswerByQuestion(id) != fact.getValueById(id)){ win = false; }
+            }
+
+            if(win){return fact.getDescription();}
+
+        }
         return null;
     }   
 }

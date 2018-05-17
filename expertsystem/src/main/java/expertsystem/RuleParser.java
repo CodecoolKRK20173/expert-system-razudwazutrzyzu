@@ -1,6 +1,9 @@
 package expertsystem;
 
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessOrder;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -17,7 +20,7 @@ public class RuleParser extends XMLParser{
 
     public RuleRepository getRuleRepository(){
         RuleRepository ruleRepository = new RuleRepository();
-        
+        XMLParser.loadXMLDocument("xmls/Rules.xml");
         Document doc = XMLParser.doc;
         NodeList nList = doc.getElementsByTagName("Rule");
         System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
